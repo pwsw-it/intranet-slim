@@ -1,0 +1,2 @@
+utworzenie bazy:
+sqlite3 contacts.dat < sqlite.sql

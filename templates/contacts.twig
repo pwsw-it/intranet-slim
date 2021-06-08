@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+
+{%block title%}Wydziały{% endblock %}
+
+{%block body%}
+
+<h1>Kontakty wydziału {{bcode}} </h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Funkcja</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefon</th>
+        <th scope="col">uwagi</th>
+        <th scope="col">operacje</th>
+      </tr>
+    </thead>
+    <tbody>
+</tr>
+{% for contact in contacts %}
+<tr><td>{{contact.id}}</td><td>{{contact.name}}</td><td>{{contact.function}}</td><td>{{contact.email}}</td>
+<td>{{contact.phone}}</td><td>{{contact.notes}}</td>
+    <td><a href="/contact/edit?id={{contact.id}}">EDYCJA</a>&nbsp;
+        <a href="/contact/delete?id={{contact.id}}">USUN</a>&nbsp;
+    
+    </td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+<a href="/contact/new?bcode={{bcode}}">
+    NOWY KONTAKT
+</a><br />
+<a href="/branch">
+    WYDZIAŁY
+</a>
+{%endblock%}

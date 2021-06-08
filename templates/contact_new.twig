@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+
+{%block title%}Wydziały{% endblock %}
+
+{%block body%}
+
+<h1>Nowy wydział</h1>
+
+<form method="POST" action="/contact/new">
+Wydział: <input name="bcode"  ><br />
+Nazwisko: <input name="name"  ><br />
+Funkcja: <input name="function"  ><br />
+Emailo: <input name="email"  ><br />
+Telefon: <input name="phone"  ><br />
+Uwagi: <input name="notes" ><br />
+
+
+<input type="submit" value="ZAPISZ">
+</form>
+{%endblock%}
+

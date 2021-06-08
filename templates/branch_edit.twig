@@ -1,0 +1,16 @@
+{%extends "base.html"%}
+
+{%block title%}Wydziały{% endblock %}
+
+{%block body%}
+
+<h1>Edycja wydziału</h1>
+<form method="POST" action="/branch/update">
+<input type='hidden' name="id" value='{{id}}' >
+wydział/instytut:<br />
+  kod (skrót): <input name="bcode" value='{{bcode}}' ><br />
+  nazwa: <input name="branch" value='{{branch}}' ><br />
+<input type="submit" value="ZAPISZ">
+</form>
+
+{%endblock%}

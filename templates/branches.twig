@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+
+{%block title%}Wydziały{% endblock %}
+
+{%block body%}
+
+<h1>Wydziały</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Wydział - nazwa</th>
+        <th scope="col">Wydział - skrót</th>
+        <th scope="col">operacje</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr><td>id</td><td>nazwa</td><td>operacje</td></tr>
+{% for branch in branches %}
+<tr><td>{{branch.id}}</td><td>{{branch.branch}}</td><td>{{branch.bcode}}</td>
+    <td><a href="/branch/edit?id={{branch.id}}">EDYCJA</a>&nbsp;
+        <a href="/branch/delete?id={{branch.id}}">USUN</a>&nbsp;
+        <a href="/contact?bcode={{branch.bcode}}">KONTAKTY</a>
+    
+    </td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+<a href="/branch/new">
+    NOWY WYDZIAŁ
+</a>
+{%endblock%}

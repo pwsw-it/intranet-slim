@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{%block title%}Wydziały{% endblock %}
+
+{%block body%}
+
+<h1>Edycja kontaktu</h1>
+{{id}}
+{{contact}}
+<form method="POST" action="/contact/update">
+<input type='hidden' name="id" value='{{id}}' >
+Wydział: <input name="bcode" value='{{bcode}}' ><br />
+Nazwisko: <input name="name" value='{{name}}' ><br />
+Funkcja: <input name="function" value='{{function}}' ><br />
+Emailo: <input name="email" value='{{email}}' ><br />
+Telefon: <input name="phone" value='{{phone}}' ><br />
+Uwagi: <input name="notes" value='{{notes}}' ><br />
+
+<input type="submit" value="ZAPISZ">
+</form>
+
+{%endblock%}

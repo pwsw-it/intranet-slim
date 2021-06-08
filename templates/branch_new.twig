@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+
+{%block title%}Wydziały{% endblock %}
+
+{%block body%}
+
+<h1>Nowy wydział</h1>
+
+<form method="POST" action="/branch/new">
+wydział/instytut: <input name="branch"><br />
+kod (skrót): <input name="bcode"><br />
+<input type="submit" value="ZAPISZ">
+</form>
+{%endblock%}
