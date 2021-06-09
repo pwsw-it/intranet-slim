@@ -14,7 +14,7 @@ tags:
   - name: Contacts
     description: oddziały
 definitions:
-  Branch:
+  ApiBranch:
     type: object
     properties:
       id:
@@ -26,14 +26,14 @@ definitions:
       bcode:
         type: string
         description: kod grupy (skrót)
-  Branches:
+  ApiBranches:
     type: object
     properties:
       branches:
         type: array
         items:
-            $ref: '#/definitions/Branch'
-  Contact:
+          $ref: '#/definitions/ApiBranch'
+  ApiContact:
     type: object
     properties:
       bcode:
@@ -54,13 +54,13 @@ definitions:
       notes:
         type: string
         description: uwagi
-  Contacts:
+  ApiContacts:
     type: object
     properties:
       contacts:
         type: array
         items:
-            $ref: '#/definitions/Contact'
+          $ref: '#/definitions/ApiContact'
   Error:
     type: object
     properties:
@@ -78,7 +78,7 @@ paths:
         '200':
           description: Sukces - lista wydziałów
           schema:
-            $ref: '#/definitions/Branches'
+            $ref: '#/definitions/ApiBranches'
         '500':
           description: Błąd wewnętrzny.
           schema:
@@ -97,7 +97,7 @@ paths:
         '200':
           description: Success
           schema:
-            $ref: '#/definitions/Contacts'
+            $ref: '#/definitions/ApiContacts'
         '500':
           description: Błąd wewnętrzny.
           schema:

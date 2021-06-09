@@ -33,6 +33,7 @@ class Model
     {   $this->db->update('branches',  
           ['branch'=>$new['branch']], ['id'=>$new['id']], 
           ['bcode'=>$new['bcode']]);
+          // update branches set branch=$branch, bcode=$bcode where id=$id
     }
 
     public function insertBranch($branch, $bcode)

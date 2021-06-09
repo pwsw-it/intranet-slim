@@ -1,6 +1,7 @@
 <?php
 // CORS https://www.slimframework.com/docs/v3/cookbook/enable-cors.html
-/*$app->options('/{routes:.+}', function ($request, $response, $args) {
+/*
+$app->options('/{routes:.+}', function ($request, $response, $args) {
     return $response;
 });
 */
@@ -13,11 +14,15 @@
 $app->options('/ab/contacts', function ($request, $response, $args) {
     return $response;
 });
+ 
 $app->GET('/ab/contacts', function($request, $response, $args) use($db) {
 //https://www.slimframework.com/docs/v4/objects/response.html#returning-json    
             $queryParams = $request->getQueryParams();
             $bcode = $queryParams['bcode'];
-            $contacts=$db->getContacts($bcode);
+            if ($bcode)
+              $contacts=$db->getContacts($bcode);
+            else 
+              $contacts=[];
             $payload = json_encode([ 'contacts'=>$contacts ]);
             $response->getBody()->write($payload);
             return $response
@@ -37,6 +42,7 @@ $app->GET('/ab/contacts', function($request, $response, $args) use($db) {
 $app->options('/ab/branches', function ($request, $response, $args) {
     return $response;
 });
+ 
 $app->GET('/ab/branches', function($request, $response, $args) use($db) {
     $branches=$db->getBranches();
     $payload = json_encode(['branches'=>$branches]);
@@ -50,3 +56,8 @@ $app->GET('/ab/branches', function($request, $response, $args) use($db) {
 
 });
 
+$app->GET('/ab/info', function($request, $response, $args)  use($db){
+    $branches=$db->getBranches();
+    $response->getBody()->write(json_encode($branches));
+    return $response;
+    });
